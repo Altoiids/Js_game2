@@ -23,8 +23,6 @@ canvasvar.addEventListener("mousedown", function (event) {
   mouse.click = true;
   mouse.x = event.x - canvas_coordinate.x;
   mouse.y = event.y - canvas_coordinate.y;
-  console.log(mouse.x);
-  console.log(mouse.y);
 });
 
 canvasvar.addEventListener("mouseup", function (event) {
@@ -96,7 +94,6 @@ class bubble {
 function handlebubble() {
   if (gameframe % 50 == 0) {
     bubblearray.push(new bubble());
-    console.log(bubblearray.length);
   }
   for (i = 0; i < bubblearray.length; i++) {
     bubblearray[i].update();
@@ -107,7 +104,6 @@ function handlebubble() {
       bubblearray.splice(i, 1);
     }
     if (bubblearray[i].distance < bubblearray[i].radius + player.radius) {
-      console.log("collision");
       if (!bubblearray[i].counted) {
         score++;
         bubblearray[i].counted = true;
@@ -149,7 +145,6 @@ class enemy {
 function handleenemy() {
   if (gameframe % 50 == 0) {
     enemyarray.push(new enemy());
-    console.log(enemyarray.length);
   }
   for (i = 0; i < enemyarray.length; i++) {
     enemyarray[i].draw();
@@ -161,7 +156,6 @@ function handleenemy() {
       enemyarray.splice(i, 1);
     }
     if (enemyarray[i].distance < enemyarray[i].radius + player.radius) {
-      console.log("collision");
       if (!enemyarray[i].counted) {
         gameover();
         enemyarray[i].counted = true;
